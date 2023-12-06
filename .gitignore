@@ -1,2 +1,7 @@
 .idea
 out
+/node_modules
+App.class
+Main.class
+Wallet.class
+Menu.class

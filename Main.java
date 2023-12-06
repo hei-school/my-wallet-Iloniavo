@@ -12,13 +12,15 @@ public class Main {
     public static void main(String[] args) {
         new Main(); // Appeler le constructeur pour initialiser le scanner
 
-        Wallet wallet = new Wallet(500, "password");
-        App app = new App(wallet, scanner);
+        Wallet wallet = new Wallet("username", "your_password", 500.00);
+        Menu app = new Menu(wallet, scanner);
 
         while (true) {
-            System.out.println("Bienvenue, veuillez entrer votre mot de passe : ");
+            System.out.println("Bienvenue, entrez votre nom d'utilisateur : ");
+            String username = scanner.nextLine();
+            System.out.println("veuillez entrer votre mot de passe : ");
             String password = scanner.nextLine();
-            if(isOwner(password, wallet.getPassword())){
+            if(wallet.authenticate(username, password)){
                 System.out.println("Vous êtes authentifié");
                 break;
             }
@@ -26,9 +28,5 @@ public class Main {
         }
 
         app.menu();
-    }
-
-    public static Boolean isOwner(String passwordToVerify, String passwordVerifier){
-        return Objects.equals(passwordToVerify, passwordVerifier);
     }
 }

@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class App {
+public class Menu {
     private Wallet wallet;
     private Scanner scanner;
 
-    public App(Wallet wallet, Scanner scanner) {
+    public Menu(Wallet wallet, Scanner scanner) {
         this.wallet = wallet;
         this.scanner = scanner;
     }
@@ -23,12 +23,12 @@ public class App {
                     break;
                 case 2:
                     System.out.print("Montant à ajouter : ");
-                    int amount = scanner.nextInt();
+                    Double amount = scanner.nextDouble();
                     wallet.addMoney(amount);
                     break;
                 case 3:
                     System.out.print("Montant à retirer : ");
-                    amount = scanner.nextInt();
+                    amount = scanner.nextDouble();
                     wallet.withdrawMoney(amount);
                     break;
                 case 4:
