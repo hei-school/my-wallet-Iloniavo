@@ -1,7 +1,8 @@
 class Wallet:
-    def __init__(self, balance, password):
+    def __init__(self, username, password, balance):
         self.balance = balance
         self.password = password
+        self.username = username
 
     def display_balance(self):
         print(f"Solde actuel : {self.balance}")
@@ -17,5 +18,5 @@ class Wallet:
             self.balance -= amount
             print(f"Montant retiré. Nouveau solde : {self.balance}")
 
-    def is_owner(self, entered_password):
-        return entered_password == self.password
+    def authenticate(self, entered_username, entered_password):
+        return entered_username == self.username and entered_password == self.password
