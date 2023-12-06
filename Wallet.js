@@ -1,7 +1,8 @@
 class Wallet {
-    constructor(balance, password) {
+    constructor(username, password, balance) {
         this.__balance = balance
         this.__password = password;
+        this.__username = username
     }
  
     get password() {
@@ -18,6 +19,14 @@ class Wallet {
 
     set balance(amount){
         this.__balance = amount
+    }
+
+    get username(){
+        return this.__username
+    }
+
+    set username(username){
+        this.__username = username
     }
 
     displayBalance() {
@@ -41,6 +50,11 @@ class Wallet {
     isOwner(password){
         return password == this.password;
     }
+
+    authenticate(username, password){
+        return (username === this.username && password === this.password)
+    }
+
 };
 
 module.exports = Wallet
