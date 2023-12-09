@@ -6,3 +6,6 @@ Main.class
 Wallet.class
 Menu.class
 Transaction.class
+__pycache__
+Card.class
+Photos.class

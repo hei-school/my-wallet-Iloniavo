@@ -1,14 +1,19 @@
 import java.util.Objects;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Wallet {
-    private String username;
-    private String password;
     private Double balance;
+    private List<Card> cards;
+    private List<Photos> photos;
 
-    public Wallet(String username, String password, Double balance){
+
+
+    public Wallet(Double balance){
         this.balance = balance;
-        this.password = password;
-        this.username = username;
+        this.cards = new ArrayList<>();
+        this.cards = new ArrayList<>();
+
     }
 
     public String getPassword() {
@@ -33,8 +38,21 @@ public class Wallet {
         }
     }
 
-    public Boolean authenticate(String username, String password){
-        return (Objects.equals(username, this.username) && Objects.equals(password, this.password));
+    public void addCard(Card card) {
+        cards.add(card);
+        System.out.println("Carte ajoutée : " + card.getName());
+    }
+
+    public void removeCard(String card) {
+        cards.remove(card);
+        System.out.println("Carte retirée : " + card);
+    }
+
+    public void displayAllCards() {
+        System.out.println("Cartes dans le portefeuille :");
+        for (Card card : cards) {
+            System.out.println("Nom : " + card.getName() + ", Type : " + card.getType());
+        }
     }
 
 }
