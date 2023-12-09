@@ -2,8 +2,6 @@
 
 # Wallet management
 
-This is a simple app for console developed with Go programming language.It manages balance displaying, money adding, money withdrawing. There is also a simple username and password factor authentication.
-
 ### Steps : 
 
 - install GoLang : follow steps [here](https://go.dev/doc/install).
@@ -11,10 +9,5 @@ This is a simple app for console developed with Go programming language.It manag
 -  run the app : 
 
 ```
-go run main.go app.go wallet.go transaction.go
+go run main.go app.go wallet.go card.go
 ```
-
-- default values are : ***username*** as a username, ***your_password*** as password, ***500*** as default balance.
-- don't waste your money !!!
-
-There is __NO DATABASE__ yet.
