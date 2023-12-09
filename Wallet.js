@@ -1,16 +1,8 @@
 class Wallet {
-    constructor(username, password, balance) {
+    constructor(balance) {
         this.__balance = balance
-        this.__password = password;
-        this.__username = username
-    }
- 
-    get password() {
-        return this.__password;
-    }
- 
-    set password(password) {
-        this.__password = password;
+        this.cards = [];
+        this.photos = [];
     }
 
     get balance(){
@@ -21,20 +13,12 @@ class Wallet {
         this.__balance = amount
     }
 
-    get username(){
-        return this.__username
-    }
-
-    set username(username){
-        this.__username = username
-    }
-
     displayBalance() {
         console.log("Votre solde actuel est de " + this.balance);
     }
 
     addMoney(amount) {
-        this.balance += amount;
+        this.balance += parseInt(amount);
         console.log("Vous avez ajouté " + amount + " à votre portefeuille");
     }
 
@@ -47,12 +31,31 @@ class Wallet {
         }
     }
 
-    isOwner(password){
-        return password == this.password;
+    addCard(card) {
+        this.cards.push(card);
+        console.log("Carte ajoutée : " + card.getName());
     }
 
-    authenticate(username, password){
-        return (username === this.username && password === this.password)
+    removeCard(cardName) {
+        const cardToRemove = this.findCard(cardName);
+        if (cardToRemove !== null) {
+            this.cards.splice(this.cards.indexOf(cardToRemove), 1);
+            console.log("Carte retirée : " + cardToRemove.getName());
+        } else {
+            console.log("Carte non trouvée : " + cardName);
+        }
+    }
+
+    findCard(cardName) {
+        return this.cards.find(card => card.getName() === cardName) || null;
+    }
+
+    displayAllCards() {
+        console.log("Cartes dans le portefeuille :");
+        if(this.cards.length() === 0) console.log("Pas de cartes");
+        this.cards.forEach(card => {
+            console.log("Nom : " + card.getName() + ", Type : " + card.getType());
+        });
     }
 
 };

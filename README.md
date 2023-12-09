@@ -15,7 +15,3 @@ npm install
 ```
 node index.js
 ```
-- default values are : ***username*** as a username, ***your_password*** as password, ***500*** as default balance. 
-- don't waste your money !!!
-
-There is __NO DATABASE__ yet.
